@@ -1,0 +1,12 @@
+1-vue-install/.idea/
+1-vue-install/dist/
+1-vue-install/node_modules/
+2-vue实例/.idea/
+2-vue实例/dist/
+2-vue实例/node_modules/
+3-模板方法/.idea/
+3-模板方法/dist/
+3-模板方法/node_modules/
+
+
+.idea/
