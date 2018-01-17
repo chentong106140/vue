@@ -49,7 +49,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     //运行之前删除dist目录
     //如下路径配置是依据当前webpack文件路径为当前路径的，所以需要改成绝对路径，不能写成相对路径
     new CleanWebpackPlugin(["dist"], {
-      root: config.build.baseRoot,       　//根目录
+      root: path.resolve(__dirname, '../'),       　//根目录
       verbose: true,        　　　　　　　　 //开启在控制台输出信息
       dry: false,        　　　　　　　　　　 //启用删除文件
       exclude: []                         ///排除不删除的目录，主要用于避免删除公用的文件
@@ -62,10 +62,18 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     new webpack.NoEmitOnErrorsPlugin(),
     // https://github.com/ampedandwired/html-webpack-plugin
     new HtmlWebpackPlugin({
-      filename: './src/index.html',
+      //filename配置的html文件目录是相对于webpackConfig.output.path路径而言的，不是相对于当前项目目录结构的
+      filename: 'index.html',
+      //本地模板文件的位置
       template: './src/index.html',
       title:"myHtml",
-      inject: true
+      /*1、true或者body：所有JavaScript资源插入到body元素的底部
+        2、head: 所有JavaScript资源插入到head元素中
+        3、false： 所有静态资源css和JavaScript都不会注入到模板文件中*/
+      inject: true,
+      //true|false，是否为所有注入的静态资源添加webpack每次编译产生的唯一hash值
+      hash:true,
+      chunks:["app","vendor","manifest"]
     }),
     // copy custom static assets
     new CopyWebpackPlugin([
