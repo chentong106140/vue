@@ -1,12 +1,49 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>vue-init</title>
-  </head>
-  <body>
-    <div id="app"></div>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>vue-init</title>
+</head>
+<body>
+<p>文本插值</p>
+<div id="interpolations" style="border:1px solid red;">
+  <span>msg1数据:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{msg1}}</span><br/>
+  <span>msg2数据:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{msg2}}</span><br/>
+  <span v-once>msg2数据禁止数据发生改变:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{msg2}}</span><br/>
+  <button v-on:click="reverseMessage">点我让数据发生改变</button>
+</div>
+<p>插入html代码</p>
+<div id="rowhtml" style="border: 1px solid red;">
+  <p>使用双括号进行插入html代码 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{rowHtml}}</p>
+  <p>使用v-html进行插入html代码 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span v-html="rowHtml"></span></p>
+</div>
+<p>插入属性值</p>
+<div id="vBind" style="border:1px solid red;">
+  <p v-bind:id="dynamicId" v-on:click="clickShowID">测试插入id属性 点击我获取动态属性id值</p>
+  <button v-bind:disable="dynamicDisable" v-on:click="clickShowDisable">测试插入禁用属性按钮 点击我获取动态属性disable值</button>
+  <br/>
+  <button v-bind:value="dynamicValue" v-on:click="clickShowValue">测试插入value属性 点击我获取动态属性value值</button>
+</div>
+<p>使用javascript代码在{{}}中</p>
+<div id="jsEl" style="border:1px solid red;">
+  <p>{{'数值计算'+(number+1)}}</p>
+  <p>{{'三目运算符'+(ok == 'yes' ? ok : 'no')}}</p>
+  <p>{{'字符串反转：'+ msg.split('').reverse().join('') }}</p>
+  <div v-bind:id="'list-'+id"></div>
+  <p v-if="bl">如果bl为真，将显示p标签</p>
+</div>
+<p>指令</p>
+<div id="zhiling" style="border:1px solid red">
+  <!--v-bind是指令，href是参数，-->
+  <!--这里的href是参数，告知v-bind指令，将元素href属性 与表达式url 的值绑定在一起-->
+  <a v-bind:href="url" v-on:click.prevent="doSomething">百度链接</a>
+</div>
+<p>指令属性简写方式</p>
+<div id="shorthands" style="border: 1px solid red;">
+  <a v-bind:href="url"  v-on:click.prevent="doSomething">完整语法</a><br/>
+  <a :href="url" @click.prevent="doSomething">简写语法</a>
+</div>
 
-  </body>
+</body>
 </html>
