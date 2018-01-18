@@ -8,7 +8,7 @@
 <body>
 <p>使用对象语法动态切换class1</p>
 <div id="ObjGrammar1" style="border: 1px solid red;">
-    <!--下面的语法说明，如果想要在div元素添加class属性值，取决于isAActive是真还是假，如果是真，就会在class=""中加入active-->
+    <!--下面的语法说明，如果想要在div元素添加class属性值，取决于isActive是真还是假，如果是真，就会在class=""中加入active-->
 
     <!--
       如果没有class属性，自动添加class=""
@@ -34,6 +34,51 @@
     <div class="active2 text-danger2"></div>
     -->
     <div v-bind:class="classObject2"></div>
+</div>
+<p>使用computed对象给Vue添加对象属性，来绑定class</p>
+<div id="ObjGrammar3"  style="border: 1px solid red;">
+  <!--
+  通过computed对象，来添加对象属性，控制是否添加样式
+  效果：
+  <div class="active text-danger"></div>
+  -->
+  <div v-bind:class="classObject"></div>
+</div>
+<p>使用数组语法添加calss</p>
+<div id="ObjGrammar4"  style="border: 1px solid red;">
+  <!--
+  通过数组语法，并且在数组语法中使用了对象语法
+  如果isActive为true，就插入active样式
+  如果Vue中定义了errorClass属性值，就将值作为样式插入
+  效果：
+  <div class="active text-danger"></div>
+  -->
+  <div v-bind:class="[{active:isActive},errorClass]"></div>
+</div>
+
+<p>使用对象语法添加style</p>
+<div id="ObjGrammar5"  style="border: 1px solid red;">
+  <!--
+    效果：
+    <div style="color: red; font-size: 30px;"></div>
+  -->
+  <div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }"></div>
+</div>
+<p>使用对象语法中的computed添加style</p>
+<div id="ObjGrammar6"  style="border: 1px solid red;">
+  <!--
+    效果：
+    <div style="color: red; font-size: 30px;"></div>
+  -->
+  <div v-bind:style="styleObject"></div>
+</div>
+<p>使用数组语法添加style</p>
+<div id="ObjGrammar7"  style="border: 1px solid red;">
+  <!--
+    效果：
+    <div style="color: red; font-size: 12px; line-height: 40px;"></div>
+  -->
+  <div v-bind:style="[{width:divWidth,borderRadius:divBorderRadius,transform:'scale(1.5)'},baseStyles,overridingStyles,styleObject]"></div>
 </div>
 </body>
 </html>

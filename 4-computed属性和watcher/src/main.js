@@ -23,5 +23,6 @@ import './watch.js'
  *
  *
  * 需要与Vue属性产生依赖关系，就是用computed属性
- *    computed属性默认是在Vue中添加属性的，所以不能在data中重复定义
+ *    computed对象添加的方法默认是在Vue中添加该方法名的属性的，所以不能在data中重复定义
+ *    computed对象添加的方法，方法中一定要记得return 一个数据，否则Vue得到的对象属性值为undefined
  */
