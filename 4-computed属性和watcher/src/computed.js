@@ -1,4 +1,6 @@
-var init = (function () {
+var init = setTimeout(function () {
+  console.log("\n\n/***************************computed.js  start****************************************/\n\n");
+
   var vm = new Vue({
     el: '#computed',
     data: {
@@ -50,7 +52,8 @@ var init = (function () {
   console.log(vm.now);  // => 1516184717138
   console.log(vm.now);  // => 1516184717138
   console.log(vm.now);  // => 1516184717138
+  console.log("\n\n/***************************computed.js  end****************************************/\n\n");
 
-})();
+},1);
 
 export default init;

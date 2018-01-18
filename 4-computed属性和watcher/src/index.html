@@ -6,9 +6,25 @@
   <title>vue</title>
 </head>
 <body>
-<div id="computed">
+<p>computed属性</p>
+<div id="computed" style="border: 1px solid red;">
   <p>初始 message 是："{{ message }}"</p>
   <p>计算后的翻转 message 是："{{ reversedMessage }}"</p>
 </div>
+<p>computed属性与watch属性</p>
+<div id="computedAndWatch" style="border: 1px solid red;">
+</div>
+<p>watch案例</p>
+<div id="watch-example">
+  <p>
+    问一个答案是 yes/no 的问题：
+    <input v-model="question">
+  </p>
+  <p>{{ answer }}</p>
+</div>
+<!--用于ajax请求-->
+<script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
+<!--用于常用api方法-->
+<script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
 </body>
 </html>
