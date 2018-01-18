@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>vue</title>
+</head>
+<body>
+<p>使用对象语法动态切换class1</p>
+<div id="ObjGrammar1" style="border: 1px solid red;">
+    <!--下面的语法说明，如果想要在div元素添加class属性值，取决于isAActive是真还是假，如果是真，就会在class=""中加入active-->
+
+    <!--
+      如果没有class属性，自动添加class=""
+      如果isActive为真，就插入active样式
+      效果：
+      <div class="active"></div>
+    -->
+    <div v-bind:class="{ active: isActive }"></div>
+
+    <!--
+      可以在已有的class属性中添加class
+      如果isActive为真就插入active样式，如果hasError为真，就插入text-danger样式
+      效果：
+      <div class="static active"></div>
+    -->
+    <div class="static" v-bind:class="{ active: isActive, 'text-danger': hasError }"> </div>
+</div>
+<p>使用对象语法动态切换class2</p>
+<div id="ObjGrammar2"  style="border: 1px solid red;">
+    <!--
+    通过对象语法添加class属性
+    效果：
+    <div class="active2 text-danger2"></div>
+    -->
+    <div v-bind:class="classObject2"></div>
+</div>
+</body>
+</html>
