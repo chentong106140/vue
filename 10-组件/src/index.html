@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>vue</title>
+</head>
+<body>
+<p>全局注册组件</p>
+<div id="quanjuzhuce" style="border:1px solid red;">
+  <!--使用全局组件-->
+  <my-quanju-1></my-quanju-1>
+</div>
+<p>局部注册组件</p>
+<div id="jubuzhuce"  style="border:1px solid red;">
+  <!--使用局部组件-->
+  <my-component1></my-component1>
+  <my-component2></my-component2>
+  <!--使用全局组件-->
+  <my-quanju-1></my-quanju-1>
+</div>
+<p>全局组件中的data函数，return一个公共的数据</p>
+<div id="quanjuzhuce-data-1"   style="border:1px solid red;">
+  <!--调用全局组件-->
+  <my-quanju-2></my-quanju-2>
+  <my-quanju-2></my-quanju-2>
+  <my-quanju-2></my-quanju-2>
+</div>
+<p>全局组件中的data函数，return一个私有的数据</p>
+<div id="quanjuzhuce-data-2"   style="border:1px solid red;">
+  <!--调用全局组件-->
+  <my-quanju-3></my-quanju-3>
+  <my-quanju-3></my-quanju-3>
+  <my-quanju-3></my-quanju-3>
+</div>
+<p>使用props传递数据-驼峰式命名  转换  串联式命名</p>
+<div id="props-chuanCanShu"   style="border:1px solid red;">
+  <!--
+  调用全局组件
+  给组件定义的props属性，传递值
+  -->
+  <my-quanju-4  my-message="这是我通过Props定义的属性，并且值也成功传递了！"></my-quanju-4>
+</div>
+<p>动态props赋值，传递数据使用简写方式 组件传递数据是动态获取到的   v-bind:msg="12"与msg="12"区别</p>
+<div id="props-object"   style="border:1px solid red;">
+  <div>
+    <input v-model="parentMsg">
+    <br>
+    <my-quanju-5 v-bind:my-message="parentMsg" v-bind:msg="12"></my-quanju-5>
+    <!--简写方式-->
+    <!--v-bind:msg="12"与msg="12"的区别，实际上就会导致传递的数据类型的不同-->
+    <!--普通的msg="12"会传入字符串String类型给子组件-->
+    <!--v-bind:msg="12"会传入实际的数字Number类型-->
+    <my-quanju-5 :my-message="parentMsg" msg="12"></my-quanju-5>
+  </div>
+</div>
+</body>
+</html>
