@@ -15,6 +15,19 @@ import './4-props-chuanCanShu.js'
 //动态props赋值，传递数据使用简写方式 组件传递数据是动态获取到的   v-bind:msg="12"与msg="12"区别
 import './5-props-object.js'
 
+//非props属性
+import './6-not-props.js'
+
+//自定义事件 v-on  修饰符.native
+import './7-events-v-on.js'
+
+//自定义表单控件
+import './8-events-form.js'
+
+//自定义表单控件,完整案例
+import './8-events-form-anli.js'
+
+
 
 /**
  * 组件的作用就是，

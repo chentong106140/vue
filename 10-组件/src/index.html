@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>vue</title>
+  <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
 </head>
 <body>
 <p>全局注册组件</p>
@@ -12,7 +13,7 @@
   <my-quanju-1></my-quanju-1>
 </div>
 <p>局部注册组件</p>
-<div id="jubuzhuce"  style="border:1px solid red;">
+<div id="jubuzhuce" style="border:1px solid red;">
   <!--使用局部组件-->
   <my-component1></my-component1>
   <my-component2></my-component2>
@@ -20,29 +21,29 @@
   <my-quanju-1></my-quanju-1>
 </div>
 <p>全局组件中的data函数，return一个公共的数据</p>
-<div id="quanjuzhuce-data-1"   style="border:1px solid red;">
+<div id="quanjuzhuce-data-1" style="border:1px solid red;">
   <!--调用全局组件-->
   <my-quanju-2></my-quanju-2>
   <my-quanju-2></my-quanju-2>
   <my-quanju-2></my-quanju-2>
 </div>
 <p>全局组件中的data函数，return一个私有的数据</p>
-<div id="quanjuzhuce-data-2"   style="border:1px solid red;">
+<div id="quanjuzhuce-data-2" style="border:1px solid red;">
   <!--调用全局组件-->
   <my-quanju-3></my-quanju-3>
   <my-quanju-3></my-quanju-3>
   <my-quanju-3></my-quanju-3>
 </div>
-<p>使用props传递数据-驼峰式命名  转换  串联式命名</p>
-<div id="props-chuanCanShu"   style="border:1px solid red;">
+<p>使用props传递数据-驼峰式命名 转换 串联式命名</p>
+<div id="props-chuanCanShu" style="border:1px solid red;">
   <!--
   调用全局组件
   给组件定义的props属性，传递值
   -->
-  <my-quanju-4  my-message="这是我通过Props定义的属性，并且值也成功传递了！"></my-quanju-4>
+  <my-quanju-4 my-message="这是我通过Props定义的属性，并且值也成功传递了！"></my-quanju-4>
 </div>
-<p>动态props赋值，传递数据使用简写方式 组件传递数据是动态获取到的   v-bind:msg="12"与msg="12"区别</p>
-<div id="props-object"   style="border:1px solid red;">
+<p>动态props赋值，传递数据使用简写方式 组件传递数据是动态获取到的 v-bind:msg="12"与msg="12"区别</p>
+<div id="props-object" style="border:1px solid red;">
   <div>
     <input v-model="parentMsg">
     <br>
@@ -53,6 +54,67 @@
     <!--v-bind:msg="12"会传入实际的数字Number类型-->
     <my-quanju-5 :my-message="parentMsg" msg="12"></my-quanju-5>
   </div>
+</div>
+<p>非props属性进行传递参数</p>
+<div id="not-props" style="border:1px solid red;">
+  <!--
+      全局组件my-quanju-6中的模板数据为<input type="date" class="form-control">
+      如果在调用全局组件的时候，在其属性中添加额外的非props定义的属性，
+      Vue会自动加这些自定义的非props属性加到模板的根元素中，
+      如果遇到class或style属性，Vue会自动追加属性，而不会替换原来的值
+      所以，最终在网页生成的html如下：
+      <input class="form-control date-picker-theme-dark" data-3d-date-picker="true" type="date">
+  -->
+  <my-quanju-6 data-3d-date-picker="true" class="date-picker-theme-dark"></my-quanju-6>
+</div>
+<p >自定义事件 v-on与监听原生事件.native</p>
+<div id="events-v-on" style="border:1px solid red;">
+  <!--读取vue实例中的total属性-->
+  <p>{{total}}</p>
+  <!--调用全局组件，并且给组件自定义一个increment事件-->
+  <!--如果需要监听原生事件，需要加“.native”修饰-->
+  <!--
+  这里调用了2次全局组件，目的是为了在每个全局组件中，
+  控制自己的counter属性，
+  同时，
+  自定义事件，又执行了实例的incrementTotal方法
+  incrementTotal方法又改变了Vue实例的total属性
+  -->
+  <my-quanju-7 v-on:increment="incrementTotal" v-on:mousedown.native="doSomething"></my-quanju-7>
+  <my-quanju-7 v-on:increment="incrementTotal"></my-quanju-7>
+
+</div>
+
+<p >自定义事件的表单输入组件</p>
+<div id="events-form" style="border:1px solid red;">
+  <p>price：{{price}}</p>
+  <p>msg：{{msg}}</p>
+  <!--
+    <my-quanju-8 v-model="price"></my-quanju-8>
+    在组件上使用v-model="price"，会解析为如下：
+    <my-quanju-8 v-bind:value="price" @input="value => {price=value}" ></my-quanju-8>
+    作用：
+        实现了双向数据绑定
+        当price变量发生改变，就会自动改变组件内的value变量
+        当组件内的value变量发生改变，price变量也会自动改变
+
+    解释：
+        price变量是Vue实例中的变量
+        value变量是组件内使用props定义的变量，用于父组件向子组件传递数据
+  -->
+  <my-quanju-8 v-model="price" v-on:myevent="myMenthod"></my-quanju-8>
+
+</div>
+<p >自定义事件的表单输入组件完整案例</p>
+<div id="events-form-anli" style="border:1px solid red;">
+  <my-quanju-9 v-model="price" label="price"></my-quanju-9>
+  <my-quanju-9 v-model="shipping" label="shipping"></my-quanju-9>
+  <my-quanju-9 v-model="handling" label="handling"></my-quanju-9>
+  <my-quanju-9 v-model="discount" label="discount"></my-quanju-9>
+  <!--
+      注意此处的美元符，不能跟{{}}双大括号一起使用，会导致webpack无法启动
+  -->
+  <p>Total:$ {{ total }}</p>
 </div>
 </body>
 </html>

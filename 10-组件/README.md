@@ -1,5 +1,11 @@
 #   [组件](https://vuefe.cn/v2/guide/components.html)
+#   插件安装
+>   https://github.com/chriso/validator.js
 
+```html
+  cnpm install --save-dev validator
+
+```
 
 
 #   构建步骤

@@ -16,7 +16,7 @@ module.exports = {
     //首页模块入口
     app: './src/main.js',
     //公共模块入口
-    vendor:['vue']
+    vendor:['vue','validator']
   },
   output: {
     path: config.build.assetsRoot,
@@ -30,13 +30,23 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
+      //设置路径别名，如果import 'src/lib/test.lib.js'，实际寻找的目录是/src/lib/test.lib.js
+      'src': path.resolve(__dirname, '../src'),
     }
   },
+  //外部扩展
+  externals:{
+    //扩展第三方插件jQuery,注意，必须使用csdn的方式引入jQuery
+    jQuery: 'window.jQuery'
+  },
   plugins:[
-    //自动导入第三方模块
+    //自动导入第三方模块,不需要再使用require('Vue')
     new webpack.ProvidePlugin({
       //导入vue
-      Vue: ['vue/dist/vue.esm.js', 'default']
+      Vue: ['vue/dist/vue.esm.js', 'default'],
+      validator:'validator',
+      $:'jQuery',
+      jQuery:'jQuery'
     })
   ],
   module: {

@@ -63,13 +63,18 @@ let init = (function () {
    *
    *
    * 5：msg="12"  与   v-bind:msg="12"  区别：
-   *    msg="12"  ：这种方式只会向子组件传递一个"12"的字符串
-   *    通过msg:Number  类型的限制，也可以凸显这个问题，
-   *    由于msg限制了数字类型，但是msg="12",却传递了"12"这个字符串给他，控制台就报错[Vue warn]: Invalid prop: type check failed for prop "msg". Expected Number, got String.
+   *    1):msg="12"  ：这种方式只会向子组件传递一个"12"的字符串
+   *        通过msg:Number  类型的限制，也可以凸显这个问题，
+   *        由于msg限制了数字类型，但是msg="12",却传递了"12"这个字符串给他，控制台就报错[Vue warn]: Invalid prop: type check failed for prop "msg". Expected Number, got String.
    *
-   *    v-bind:msg="12" : 这种方式会根据传入的实际的数据类型向子组件传递数据
-   *    v-bind:msg="12" 实际传递了12这个整数
-   *    通过msg:Number  类型的限制，控制台并没有报错，也证明了数据类型传递成功
+   *    2):v-bind:msg="12" : 这种方式会根据传入的实际的数据类型向子组件传递数据
+   *        v-bind:msg="12" 实际传递了12这个整数
+   *        通过msg:Number  类型的限制，控制台并没有报错，也证明了数据类型传递成功
+   *
+   *    3):数据绑定传输区别
+   *        v-bind:my-message="parentMsg" 可以将变量parentMsg传入给子组件
+   *        my-message="parentMsg"  只会将字符串"parentMsg"传入给子组件
+   *
    */
 
   console.log("\n\n/***************************5-props-object.js  end****************************************/\n\n");
