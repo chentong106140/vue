@@ -4,6 +4,8 @@
 
 >   本地安装vue cnpm install vue
 
+>   -------------下面为开始安装-------------
+
 >   安装 vue-cli  cnpm install --global vue-cli  如果全局已经安装过vue-cli就不要再安装
 
 >   使用 "webpack" 模板创建一个新项目  vue init webpack  /如果没有创建项目目录 vue init webpack my-project
