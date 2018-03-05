@@ -6,5 +6,21 @@
   <title>vue</title>
 </head>
 <body>
+<p>使用v-if条件命令</p>
+<div id="v-if-1" style="border: 1px solid red;">
+  <h1 v-if="ok">Yes</h1>
+  <h1 v-else>No</h1><!--  v-else 元素必须紧跟在 v-if 或 v-else-if 元素之后 - 否则无法识别它。-->
+
+  <h1 v-if="error">发生错误</h1>
+
+  <input  v-model="type" placeholder="请输入A,B,C"></input>
+  <h1 v-if="type === 'A'">A</h1>
+  <h1 v-else-if="type === 'B'">B</h1>
+  <h1 v-else="type === 'C'">C</h1>
+</div>
+<p>使用v-show条件命令,控制显示与隐藏</p>
+<div id="v-show-1" style="border: 1px solid red;">
+  <h1 v-show="ok === false">Hello!</h1>
+</div>
 </body>
 </html>

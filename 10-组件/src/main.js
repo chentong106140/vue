@@ -27,6 +27,14 @@ import './8-events-form.js'
 //自定义表单控件,完整案例
 import './8-events-form-anli.js'
 
+//在 JavaScript 标签里定义模板
+import './9-x-template.js'
+
+//使用template标签订购模板
+import './10-template.js'
+
+import './11-template.js'
+
 
 
 /**

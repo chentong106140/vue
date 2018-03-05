@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>vue</title>
+  <style type="text/css">
+    .border{
+      border:1px solid red;
+    }
+    #v-for-array-1,#v-for-obj-1 ul li .border{
+      margin: 0 50px;
+    }
+  </style>
+</head>
+<body>
+<p>使用v-for遍历数组,生成元素</p>
+<div id="v-for-array-1"  class="border">
+    <ul>
+      <!--
+      item是遍历数组中的每一个对象
+      index是每次遍历的索引，从0开始
+      msg是Vue中data中的属性，不是数组中的对象属性
+
+      in也可以写出of,
+      例如：item of items
+      -->
+      <li v-for="(item , index) in items">
+        <span class="border">{{index}}</span><span class="border">{{msg}}</span><span class="border">{{item.msg}}</span>
+      </li>
+    </ul>
+</div>
+<p>使用v-for遍历数组,生成元素</p>
+<div id="v-for-obj-1"  class="border">
+  <ul>
+    <!--
+      value:是对象的属性值
+      key:是对象的属性名称
+      index:是属性的的索引
+    -->
+    <li v-for="(value , key,index) in obj">
+      <span class="border">{{index}}</span><span class="border">{{key}}</span><span class="border">{{value}}</span>
+    </li>
+  </ul>
+</div>
+<p>使用v-for在整数值范围内迭代</p>
+<div id="v-for-obj-2"  class="border">
+  <ul>
+    <li v-for="(n,index) in 10">
+      <span class="border">{{index}}</span><span class="border">{{n}}</span>
+    </li>
+  </ul>
+</div>
+</body>
+</html>
