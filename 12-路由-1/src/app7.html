@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>app7</title>
+  <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+  <style type="text/css">
+    .router-link-exact-active.router-link-active {
+      color: red;
+    }
+
+  </style>
+</head>
+<body>
+<div id="app">
+  <h1>路由组件传参</h1>
+  <p>
+    <router-link to="/user/chentong?type=陈通">给chentong传入type值</router-link>
+    <router-link to="/user/libai">给libai传入userName值</router-link>
+  </p>
+
+  <!--路由出口-->
+  <!--路由匹配的组件，将渲染在这里-->
+  <router-view name="center"></router-view>
+</div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>app4</title>
+  <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+  <style type="text/css">
+    .router-link-exact-active.router-link-active {
+      color: red;
+    }
+
+  </style>
+</head>
+<body>
+<div id="app">
+  <h1>编程式路由</h1>
+  <p>
+    <a href="javascript:void(0);" @click="goHome">进入首页</a>
+    <a href="javascript:void(0);" @click="goDianshiju">进入电视剧页面</a>
+    <a href="javascript:void(0);" @click="goDianying">进入电影页面</a>
+  </p>
+
+  <!--路由出口-->
+  <!--路由匹配的组件，将渲染在这里-->
+  <router-view></router-view>
+</div>
+</body>
+</html>

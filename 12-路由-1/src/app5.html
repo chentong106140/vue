@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>app5</title>
+  <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+  <style type="text/css">
+    .router-link-exact-active.router-link-active {
+      color: red;
+    }
+    .red{
+      color:red;
+    }
+    .green{
+      color:green;
+    }
+    .blue{
+      color:blue;
+    }
+
+  </style>
+</head>
+<body>
+<div id="app">
+  <h1>命名视图</h1>
+  <p>
+    <router-link to="/user/chentong?type=首页">进入首页</router-link>
+    <router-link to="/center/dufu?type=电视剧">进入中心</router-link>
+  </p>
+
+  <!--路由出口-->
+  <!--路由匹配的组件，将渲染在这里-->
+  <router-view class="red"></router-view>
+  <router-view class="blue" name="dianshiju"></router-view>
+  <router-view class="green" name="dianying"></router-view>
+</div>
+</body>
+</html>

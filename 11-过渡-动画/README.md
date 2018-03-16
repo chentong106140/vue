@@ -1,4 +1,4 @@
-#   [事件处理](https://vuefe.cn/v2/guide/events.html)
+#   [过渡 & 动画](https://vuefe.cn/v2/guide/components.html)
 
 
 

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>vue</title>
+  <style type="text/css">
+    .border{
+      border:1px solid red;
+    }
+  </style>
+</head>
+<body>
+<p>单行文本</p>
+<div id="v-model-1"  class="border">
+  <input v-model="msg" placeholder="编辑">
+  <p>msg 是：{{ msg }}</p>
+</div>
+<p>多行文本</p>
+<div id="v-model-2"  class="border">
+  <span>多行 message 是：</span>
+  <p style="white-space: pre-line;">{{ msg }}</p>
+  <br>
+  <textarea v-model="msg" placeholder="添加多行"></textarea>
+</div>
+<p>单选</p>
+<div id="v-model-3"  class="border">
+  <input type="checkbox" id="checkbox" v-model="checked">
+  <label for="checkbox">{{ checked }}</label>
+</div>
+<p>多选</p>
+<div id="v-model-4"  class="border">
+  <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+  <label for="jack">Jack</label>
+  <input type="checkbox" id="john" value="John" v-model="checkedNames">
+  <label for="john">John</label>
+  <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+  <label for="mike">Mike</label>
+  <br>
+  <span>勾选的名字是：{{ checkedNames }}</span>
+</div>
+<p>只能选一个</p>
+<div id="v-model-5"  class="border">
+  <input type="radio" id="one" value="One" v-model="picked">
+  <label for="one">One</label>
+  <br>
+  <input type="radio" id="two" value="Two" v-model="picked">
+  <label for="two">Two</label>
+  <br>
+  <input type="radio" id="three" value="Three" v-model="picked">
+  <label for="three">Three</label>
+  <br>
+  <span>选中的是：{{ picked }}</span>
+</div>
+<p>单选 select</p>
+<div id="v-model-6"  class="border">
+  <select v-model="selected">
+    <option disabled value="">请选择其中一项</option>
+    <option>A</option>
+    <option>B</option>
+    <option>C</option>
+  </select>
+  <span>选中的是：{{ selected }}</span>
+</div>
+<p>多选 select（绑定到一个数组）</p>
+<div id="v-model-7"  class="border">
+  <select v-model="selected" multiple>
+    <option>A</option>
+    <option>B</option>
+    <option>C</option>
+  </select>
+  <br>
+  <span>选中的是：{{ selected }}</span>
+</div>
+<p>使用 v-for 渲染动态的 option</p>
+<div id="v-model-8"  class="border">
+  <select v-model="selected">
+    <option disabled value="">请选择其中一项</option>
+    <option v-for="option in options" v-bind:value="option.value">
+      {{ option.text }}
+    </option>
+  </select>
+  <span>选中的是：{{ selected }}</span>
+</div>
+</body>
+</html>

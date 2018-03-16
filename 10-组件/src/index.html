@@ -144,5 +144,28 @@
 
   <my-vue-template :my-message="msg"></my-vue-template>
 </div>
+
+<p>单个插槽-没有插入内容</p>
+<div id="chacao-1" class="border">
+<chacao01 msg=""></chacao01>
+</div>
+
+<p>单个插槽-插入内容</p>
+<div id="chacao-2" class="border">
+  <chacao01 msg="我是父组件传给子组件的消息！">
+    <h1>我是父组件传给子组件的内容A！</h1>
+    <h1>我是父组件传给子组件的内容B！</h1>
+  </chacao01>
+</div>
+
+<p>具名插槽</p>
+<div id="chacao-3" class="border">
+  <chacao02>
+    <h1 slot="header">我是父组件传给子组件的标题！</h1>
+    <h1 slot="footer">我是父组件传给子组件的底部！</h1>
+    <h1>我是父组件传给子组件的其他内容A！</h1>
+    <h1>我是父组件传给子组件的其他内容B！</h1>
+  </chacao02>
+</div>
 </body>
 </html>

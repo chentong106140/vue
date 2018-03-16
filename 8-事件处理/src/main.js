@@ -1,11 +1,10 @@
 
-//使用v-for遍历数组
-import './1-v-for-array.js'
+//使用v-on执行methods中定义的方法
+//使用v-on执行行内javascript方法，并且传递参数
+//使用v-on传递DOM事件对象
+import './1-v-on-method.js'
 
-//使用v-for遍历对象,
-// 动态在data属性对象中添加属性
-//v-for在整数值范围内迭代
-import './2-v-for-obj.js'
+
 
 
 Vue.config.productionTip = true;

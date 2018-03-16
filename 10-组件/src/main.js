@@ -35,6 +35,9 @@ import './10-template.js'
 
 import './11-template.js'
 
+//插槽
+import './12-chacao.js'
+
 
 
 /**

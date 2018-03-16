@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>vue</title>
+  <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+  <style type="text/css">
+    .border{
+      border:1px solid red;
+    }
+
+    .fade11-enter-active, .fade11-leave-active {
+      transition: opacity .5s;
+    }
+    .fade11-enter, .fade11-leave-to /* .fade-leave-active 在低于版本 2.1.8 中 */ {
+      opacity: 0;
+    }
+  </style>
+</head>
+<body>
+<p>全局注册组件</p>
+<div id="dwj-gd-1" class="border">
+
+  <!--
+
+Vue 提供了 transition 外层包裹容器组件(wrapper component)，可以给下列情形中的任何元素和组件添加进入/离开(enter/leave)过渡
+    条件渲染（使用 v-if）
+    条件展示（使用 v-show）
+    动态组件
+    组件根节点
+
+    有 6 种 class 类名会在进入/离开(enter/leave)过渡中处理
+
+    v-enter：进入式过渡(entering transition)的开始状态。在插入元素之前添加，在插入元素之后一帧移除。
+
+    v-enter-active：进入式过渡的激活状态。应用于整个进入式过渡时期。在插入元素之前添加，过渡/动画(transition/animation)完成之后移除。此 class 可用于定义进入式过渡的 duration, delay 和 easing 曲线。
+
+    v-enter-to：仅适用于版本 2.1.8+。进入式过渡的结束状态。在插入元素之后一帧添加（同时，移除 v-enter），在过渡/动画完成之后移除。
+
+    v-leave：离开式过渡(leaving transition)的开始状态。在触发离开式过渡时立即添加，在一帧之后移除。
+
+    v-leave-active：离开式过渡的激活状态。应用于整个离开式过渡时期。在触发离开式过渡时立即添加，在过渡/动画(transition/animation)完成之后移除。此 class 可用于定义离开式过渡的 duration, delay 和 easing 曲线。
+
+    v-leave-to：仅适用于版本 2.1.8+。离开式过渡的结束状态。在触发离开式过渡之后一帧添加（同时，移除 v-leave），在过渡/动画完成之后移除。
+
+
+  -->
+  <button v-on:click="show = !show">
+    点击我，控制show变量，show变量去控制使用了v-if的元素，进行过度效果
+  </button>
+  <!--
+    name的值是自定义的值，用于检测当前页面是否制定了以fade11开头的css 的class类名，如果有，就调用，如果没有就不调用
+    -->
+  <transition name="fade11">
+    <p v-if="show">hello</p>
+  </transition>
+</div>
+</body>
+</html>
