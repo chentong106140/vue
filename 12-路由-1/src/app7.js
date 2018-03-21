@@ -1,5 +1,5 @@
 /**
- * 路由组件传参（https://router.vuejs.org/zh-cn/essentials/redirect-and-alias.html）
+ * 路由组件传参（https://router.vuejs.org/zh-cn/essentials/passing-props.html）
  */
 
 import VueRouter from 'vue-router'
